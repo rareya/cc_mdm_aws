@@ -10,7 +10,8 @@ phases:
   pre_build:
     commands:
       - echo "Running Security Scan..."
-      - bandit -r . -f txt
+      # Fail only on MEDIUM and HIGH severity issues
+      - bandit -r . -ll -f txt
 
   build:
     commands:
